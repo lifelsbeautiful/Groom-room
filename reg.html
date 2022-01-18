@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="styles.css">
 	<title>Grooming</title>
 </head>
@@ -17,7 +18,7 @@
 		</div>
 	</div>
 	</header>
-	<section>
+	<section class="sectiong">
 		<div class="section-container">
 			<div class="left-section">
 				<div class="text-name"><span>Войдите или зарегистрируйтесь</span></div>
@@ -36,22 +37,20 @@
 			<div class="right-section reg">
 				<div class="text-vhod">Вход<a href="#"><span class="text-register">Регистрация</span></a></div>
 				<form action="">
-					<input class="polev" type="text" name="" placeholder="Логин">
-					<input class="polev" type="text" name="" placeholder="Пароль">
-					<input class="otprav" type="submit" value="Записаться" id="input">
+					<div class="project">
+					<input class="polev" type="email" v-bind:value="znachEmail" v-on:input="vhodEmail" >
+					<input class="polev" type="password" v-bind:value="znachPassword" v-on:input="vhodPassword">
+					<button class="otprav" type="button" v-on:click="consoleConclusion">Войти</button>
+				</div>
 				</form>
 			</div>
         </div>
 		</div>
 	</section>
-<script type="text/javascript">
-	const input = document.querySelector("#input");
-	input.onclick = (e) => {
-		e.preventDefault()
-	}
-</script>
 <footer>
 	<div class="name-footer">groom-salon.com 2000-2999</div>
 </footer>
+<script src="js/script.js"></script>
+<script src="js/vue.js"></script>
 </body>
 </html>

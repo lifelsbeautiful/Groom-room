@@ -11,6 +11,9 @@ text-decoration: none;
 header {
 	border-bottom: 1px solid #c7c7c7;
 }
+input {
+	outline: none;
+}
 .header-container {
 	width: 900px;
 	display: flex;
@@ -39,15 +42,18 @@ header {
 .active{
 	color: #c7c7c7;
 }
+.content {
+	display: flex;
+}
 .section-container {
 	display: flex;
 	width: 900px;
 	margin-top: 100px;
+	margin: auto auto;
 }
 .left-section {
-	flex: 1;
+	display:flex;
 	height: 200px;
-	margin-left: 25%;
 }
 .text-name {
 	font-weight: bold;
@@ -84,6 +90,7 @@ header {
 	line-height: 16px;
 	margin-top: 50px;
 	border: 1px solid #6D79EB;
+	cursor: pointer;
 }
 .section-project {
 	width: 900px;
@@ -98,16 +105,20 @@ header {
 .project {
 	display: flex;
 	margin: auto auto;
-	margin-top: 50px;
 	font-weight: bold;
 	font-size: 18px;
 	justify-content: space-evenly;
-	width: 800px;
+	width: 80%;
+	flex-wrap: wrap;
+    align-items: center;
 }
-.double {
-	justify-content: space-evenly;
-	width: 560px;
-	margin-left: 5%;
+.one-project {
+	margin-top: 50px;
+	text-align: center;
+}
+.stage {
+ margin-top: 5px;
+ font-weight: normal;
 }
 .dog {
 	width:206px;
@@ -116,7 +127,6 @@ header {
 }
 .name-project {
 	margin-top: 10px;
-	margin-left: 10px;
 }
 footer {
 	text-align: center;
@@ -156,7 +166,7 @@ footer {
 .dogacat {
 	z-index: 2;
 	position:absolute;
-	margin-left: 3%;
+	margin-left: 2%;
 }
 .reg {
 	margin-top: 120px!important;
@@ -183,6 +193,7 @@ footer {
 .section-container-zaya {
 	display: flex;
 	width: 900px;
+	margin: auto auto;
 }
 .right-section {
 	width: 315px!important;
