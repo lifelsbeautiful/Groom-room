@@ -7,8 +7,17 @@ function сreateApplication($cr, $nickname, $category) {
   $date = date('Y-m-d');
   $sql = "INSERT INTO `table-applications` (`id`, `nickname`, `before-foto`, `after-foto`, `vrem`, `category`, `status`) VALUES (NULL, '$nickname', 'before', 'after', '$date', '$category', '$standart')";
   if ($cr->query($sql) === TRUE) {
-    echo "Заявка создана";
+    $tableapp =  mysqli_query($cr, "SELECT * FROM `table-applications` where `nickname` = '$name'");
+    $mass = [];
+    while ($mas = mysqli_fetch_assoc($tableapp)) {
+      array_push($mass, array('id' => $mas['id'], 'img' => $mas['before-foto'],'nickname' => $mas['nickname'],'category' => $mas['category'],'status' => $mas['status'],'vrem' => $mas['vrem']));
+    }
+    return $mass;
+  } else {
+    return "Error: " . $sql . "<br>" . $cr->error;
+  }
 }
+    
 function obtainingAllApp($cr) {
   $app =  mysqli_query($cr, "SELECT * FROM `table-applications`");
   $mass = [];
@@ -22,6 +31,7 @@ function obtainingAllApp($cr) {
     echo '<br>';
   }
 }
+
 function receivingAppId($cr, $id) {
   for ($idx=0; $idx < count($id); $idx++) { 
     $app =  mysqli_query($cr, "SELECT * FROM `table-applications` Where `id` = '$id[$idx]'");
@@ -37,14 +47,31 @@ function receivingAppId($cr, $id) {
     }
   }
 }
+
 function removingApp($cr, $nickname) {
-  $sql = "DELETE FROM `application` WHERE `table-applications`.`nickname` = '$nickname'";
+  $sql = "DELETE FROM `table-applications` WHERE `table-applications`.`nickname` = '$nickname'";
   if ($cr->query($sql) === TRUE) {
     echo "Заявки удалены";
 }
+
 function appStatusChanges($cr, $nickname, $status) {
   $sql = "UPDATE `table-applications` SET `status` = '$status' WHERE `nickname` = '$nickname'";
   if ($cr->query($sql) === TRUE) {
     echo "Статус изменен";
+  }
 }
-?>
+
+$connect = $_POST['connect'];
+$mass = connect_db();
+
+switch ($type) {
+  default:
+    echo 'Error';
+    break;
+    case "OBTAINING_APPLICATIONS":
+      echo json_encode(obtainingAllApp($mass));
+      break;
+    case "CREATE_APPLICATIONS":
+      echo json_encode(сreateApplication($mass, $_POST['nickname'], $_POST['category']));
+      break;
+}
