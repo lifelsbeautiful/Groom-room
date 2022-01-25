@@ -75,7 +75,7 @@ function examination($cr, $login)
 
 
 $connect = $_POST['connect'];
-$mass = connect_db();
+$cr = connect_db();
 
 
 switch ($type) {
@@ -83,12 +83,12 @@ switch ($type) {
     echo 'Error';
     break;
   case "REGISTR_USER":
-    echo json_encode(registrationUser($mass, $_POST['login'], $_POST['password']));
+    echo json_encode(registrationUser($cr, $_POST['login'], $_POST['password']));
     break;
   case "LOGIN_USER":
-    echo json_encode(authorizationUser($mass, $_POST['login'], $_POST['password']));
+    echo json_encode(authorizationUser($cr, $_POST['login'], $_POST['password']));
     break;
   case "EXAMINATION_USER":
-    echo json_encode(examination($mass, $_POST['login']));
+    echo json_encode(examination($cr, $_POST['login']));
     break;
 }
