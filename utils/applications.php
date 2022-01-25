@@ -62,16 +62,16 @@ function appStatusChanges($cr, $nickname, $status) {
 }
 
 $connect = $_POST['connect'];
-$cr = connect_db();
+$mass = connect_db();
 
 switch ($type) {
   default:
     echo 'Error';
     break;
     case "OBTAINING_APPLICATIONS":
-      echo json_encode(obtainingAllApp($cr));
+      echo json_encode(obtainingAllApp($mass));
       break;
     case "CREATE_APPLICATIONS":
-      echo json_encode(сreateApplication($cr, $_POST['nickname'], $_POST['category']));
+      echo json_encode(сreateApplication($mass, $_POST['nickname'], $_POST['category']));
       break;
 }
