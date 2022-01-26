@@ -54,6 +54,7 @@ input {
 .left-section {
   display: flex;
   height: 200px;
+  flex-direction: column;
 }
 .text-name {
   font-weight: bold;
@@ -148,7 +149,7 @@ footer {
   margin-left: 28px;
   width: 315px !important;
 }
-.text-register {
+.text-register a{
   font-weight: bold;
   font-size: 18px;
   line-height: 21px;
