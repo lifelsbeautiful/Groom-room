@@ -15,9 +15,9 @@
 				<font class="logo-text">Service for dogs and cats</font>
 			</div>
 			<div>
-				<a class="nav-button active" href="#">Главная</a>
-				<a class="nav-button" href="reg.html">Заявки</a>
-				<a class="nav-button active" href="reg.html">Кабинет</a>
+				<a class="nav-button active" href="index">Главная</a>
+				<a class="nav-button" href="#">Заявки</a>
+				<a class="nav-button active" href="auth">Кабинет</a>
 			</div>
 		</div>
 	</header>
@@ -27,17 +27,17 @@
 				<div class="text-name-zaya"><span>Мои заявки</span></div>
 				<div class="zayavki">
 					<div class="zayavka">
-						<img class="mini-dog" src="img/dog.png" alt="">
+						<img class="mini-dog" src="public/img/dog.png" alt="">
 						<span class="number-zaya">Заявка №1</span>
 						<span class="info"></span>
 					</div>
 					<div class="zayavka">
-						<img class="mini-dog" src="img/dog.png" alt="">
+						<img class="mini-dog" src="public/img/dog.png" alt="">
 						<span class="number-zaya">Заявка №1</span>
 						<span class="info"></span>
 					</div>
 					<div class="zayavka">
-						<img class="mini-dog" src="img/dog.png" alt="">
+						<img class="mini-dog" src="public/img/dog.png" alt="">
 						<span class="number-zaya">Заявка №1</span>
 						<span class="info"></span>
 					</div>

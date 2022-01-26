@@ -16,8 +16,8 @@
 					<font class="logo-text">Service for dogs and cats</font>
 				</div>
 				<div>
-					<a class="nav-button" href="#">Главная</a>
-					<a class="nav-button active" href="auth.html">Вход</a>
+					<a class="nav-button" href="index">Главная</a>
+					<a class="nav-button active" href="auth">Вход</a>
 				</div>
 			</div>
 		</header>

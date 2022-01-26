@@ -15,8 +15,8 @@
 				<font class="logo-text">Service for dogs and cats</font>
 			</div>
 			<div>
-				<a class="nav-button" href="#">Главная</a>
-				<a class="nav-button active" href="#">Вход</a>
+				<a class="nav-button" href="index.php">Главная</a>
+				<a class="nav-button active" href="public/auth.php">Вход</a>
 			</div>
 		</div>
 	</header>
@@ -37,12 +37,13 @@
 					</defs>
 				</svg>
 				<div class="right-section reg">
-					<div class="text-vhod">Вход<a href="#"><span class="text-register">Регистрация</span></a></div>
+					<div class="text-vhod">Вход<span class="text-register"><a href="#">Регистрация</a></span></div>
 					<form action="">
 						<div class="project">
 							<input class="polev" type="email" v-bind:value="znachEmail" v-on:input="vhodEmail">
 							<input class="polev" type="password" v-bind:value="znachPassword" v-on:input="vhodPassword">
-							<button class="otprav" type="button" v-on:click="consoleConclusion">Войти</button>
+							<button class="otprav" type="button" v-on:click="User('LOGIN_USER')">Войти</button>
+							<button class="otprav" style="display:none;" v-on:click="User('REGISTER_USER')">Регистрация</button>
 						</div>
 					</form>
 				</div>
