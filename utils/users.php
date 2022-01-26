@@ -13,6 +13,17 @@ function registrationUser($cr, $login, $password)
     echo "Error: " . $sql . "<br>" . $cr->error;
   }
 }
+session_start();
+
+$login = $_POST["login"];
+$password = $_POST["password"];
+$repeat_password = $_POST["repeat"];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $repeat_password === $password) {
+  registrationUser($cr, $login, $password);
+} else {
+  echo "Произошла ошибка. пароли не совпадают";
+}
 
 function authorizationUser($cr, $login, $password)
 {
@@ -34,6 +45,14 @@ function authorizationUser($cr, $login, $password)
     echo 'пользователь не найден или неправильно введен пароль';
   }
 }
+session_start();
+
+$login = $_POST["login"];
+$password = $_POST["password"];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $_SESSION["userkey"] = authorizationUser($mass, $login, $password);
+}
 
 function examination($cr, $login)
 {
@@ -50,31 +69,22 @@ function examination($cr, $login)
   }
 }
 
-session_start();
 
-$login = $_POST["login"];
-$password = $_POST["password"];
-$mass = connect_db();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $_SESSION["userkey"] = authorizationUser($mass, $login, $password);
-}
 
 $connect = $_POST['connect'];
-$mass = connect_db();
 
 
 switch ($type) {
   default:
     echo 'Error';
     break;
-  case "REGISTR_USER":
-    echo json_encode(registrationUser($mass, $_POST['login'], $_POST['password']));
+  case "REGISTER_USER":
+    echo json_encode(registrationUser($cr, $_POST['login'], $_POST['password']));
     break;
   case "LOGIN_USER":
-    echo json_encode(authorizationUser($mass, $_POST['login'], $_POST['password']));
+    echo json_encode(authorizationUser($cr, $_POST['login'], $_POST['password']));
     break;
   case "EXAMINATION_USER":
-    echo json_encode(examination($mass, $_POST['login']));
+    echo json_encode(examination($cr, $_POST['login']));
     break;
 }
